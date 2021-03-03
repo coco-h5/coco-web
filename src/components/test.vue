@@ -1,11 +1,13 @@
 <template>
-  <router-view></router-view>
+ <div>123123131</div>
 </template>
 
 <script>
-
 export default {
-  name: 'App'
+name: "test"
 }
 </script>
 
+<style scoped>
+
+</style>
