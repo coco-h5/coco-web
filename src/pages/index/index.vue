@@ -56,6 +56,7 @@ import Header from '@/components/header';
 import {reactive, toRefs} from 'vue';
 import { useForm } from '@ant-design-vue/use';
 import {market, project} from '@/api';
+import {useRouter} from 'vue-router';
 
 export default {
   setup() {
@@ -95,12 +96,12 @@ export default {
       state.pageInfo = config;
       state.createDialog = true;
     }
-
+    const router = useRouter();
     const createPage = () => {
       validate().then(async () => {
         state.creating = true;
         try {
-          await project.createProject({
+          const data = await project.createProject({
             pageConfig: {
               config: {
                 templateId: state.pageInfo.id,
@@ -115,7 +116,12 @@ export default {
             }
           });
           state.creating = false;
-
+          router.push({
+            path: '/edit',
+            query: {
+              id: data.result.id,
+            }
+          })
         } catch (e) {
           state.creating = false;
         }
