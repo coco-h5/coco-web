@@ -17,6 +17,20 @@
             <MailOutlined />
             模板组件
           </a-menu-item>
+          <a-sub-menu key="common">
+            <template #title>
+              <span>
+                <AppstoreOutlined />
+                <span>系统组件</span>
+              </span>
+            </template>
+            <a-menu-item
+                :key="item.name"
+                v-for="item in editState.uiConfig.commonComponents"
+            >
+              {{item.description}}
+            </a-menu-item>
+          </a-sub-menu>
         </a-menu>
       </div>
       <div class="list-view">
@@ -26,7 +40,7 @@
           draggable
           class="co-item"
           :key="index"
-          v-for="(item, index) in editState.pageConfig.components"
+          v-for="(item, index) in canSelects.length ? canSelects : editState.pageConfig.components"
         >
           <a-image
             class="preview-item"

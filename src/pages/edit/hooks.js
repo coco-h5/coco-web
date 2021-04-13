@@ -92,7 +92,8 @@ export function useEditor() {
   const init = (index) => {
     const componentsPND = document.getElementById('frame')?.contentWindow.document.getElementById('slider-view');
     if (!componentsPND) return;
-    const containerHeight = Math.ceil(parseFloat(getComputedStyle(componentsPND).height));
+    const container = document.getElementById('frame')?.contentWindow.document.getElementsByTagName('html')[0]
+    const containerHeight = Math.ceil(parseFloat(getComputedStyle(container).height) + componentsPND.offsetTop);
     state.containerHeight = containerHeight > 667 ? containerHeight : 667;
     if (index === -1) return;
     const node = componentsPND.childNodes[index];

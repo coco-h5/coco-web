@@ -120,7 +120,6 @@
 </template>
 
 <script>
-document.domain = "localhost" // 设置同域
 
 import Header from '@/components/header';
 import ComponentSelect from './components-select';
@@ -143,7 +142,7 @@ import {
 import {toRefs, reactive, watch, toRaw} from 'vue';
 import {useStore} from 'vuex';
 import {useRoute} from 'vue-router';
-import {project} from '@/api';
+import {project, component} from '@/api';
 import {useEditor} from './hooks';
 
 const postMsgToChild = (msg) => {
@@ -164,7 +163,10 @@ export default {
     const {editorState, eventInit, init, getIndex, setFixedStyle} = useEditor();
     const router = useRoute();
 
-    project.query({id: router.query.id}).then(({result}) => {
+    Promise.all([
+      project.query({id: router.query.id}),
+      component.query()
+    ]).then(([{result}, {result: componentRes}]) => {
       state.data = result[0];
       const targetConfig = result[0].pageConfig;
       state.name = result[0].name;
@@ -174,6 +176,7 @@ export default {
         targetConfig: targetConfig,
         pageData: state.data,
         releaseStatus: result[0].releaseInfo,
+        commonComponents: componentRes
       });
     });
 

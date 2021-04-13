@@ -4,6 +4,7 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import router from './router';
 import store from './store'
+document.domain = "localhost" // 设置同域
 
 import {
   FileImageOutlined,
