@@ -76,7 +76,7 @@ const actions = {
       let component = state.pageConfig.userSelectComponents[currentIndex];
       let currentComponentSchema = state.pageConfig.components.filter((c) => c.name === component.name)[0];
       // 远程组件
-      if (component && component.name === 'kaer-components-loader') {
+      if (component && component.name === 'coco-components-loader') {
         currentComponentSchema = state.pageConfig.remoteComponents.filter(c => `${c.name}.${c.version}` === component.config.name)[0];
       }
       // 当前修改项，用于 form-render
