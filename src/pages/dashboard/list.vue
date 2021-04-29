@@ -6,13 +6,13 @@
           <span> 暂无页面，快去创建吧 </span>
         </template>
         <a-button type="primary">
-          <router-link to="/create">创建页面</router-link>
+          <router-link to="/home">创建页面</router-link>
         </a-button>
       </a-empty>
     </div>
     <div class="list" v-else>
       <a-button class="top">
-        <router-link to="/create">创建页面</router-link>
+        <router-link to="/home">创建页面</router-link>
       </a-button>
       <a-list
           class="demo-loadmore-list"

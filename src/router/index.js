@@ -1,12 +1,13 @@
 import Index from '@/pages/index/index';
 import Edit from '@/pages/edit/index';
 import Dashboard from '@/pages/dashboard/index';
+import Intro from '@/pages/intro/index';
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     component: Index
   },
   {
@@ -18,8 +19,12 @@ const routes = [
     component: Dashboard
   },
   {
+    path: '/',
+    component: Intro
+  },
+  {
     path: '/:pathMatch(.*)*',
-    component: Index
+    component: Intro
   },
 ]
 

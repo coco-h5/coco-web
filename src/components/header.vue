@@ -17,6 +17,11 @@
           mode="horizontal"
           @select="(path) => handleSelect(path)"
       >
+        <a-menu-item>
+          <a href="https://github.com/coco-h5/coco-web" target="_blank">
+            Github
+          </a>
+        </a-menu-item>
         <slot name="menu">
           <a-menu-item>
             <router-link to="/dashboard">
@@ -143,6 +148,7 @@ body {
       .logo-container {
         height: 50px;
         width: 100px;
+        background: url('../assets/image/logo.png') no-repeat center center;
         background-size: 110%;
       }
     }
@@ -152,6 +158,7 @@ body {
     .logo-container {
       height: 50px;
       width: 100px;
+      background: url('../assets/image/logo.png') no-repeat center center;
       background-size: 110%;
     }
   }

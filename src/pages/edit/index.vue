@@ -144,6 +144,7 @@ import {useStore} from 'vuex';
 import {useRoute} from 'vue-router';
 import {project, component} from '@/api';
 import {useEditor} from './hooks';
+import {message} from "ant-design-vue";
 
 const postMsgToChild = (msg) => {
   window.frames[0] && window.frames[0].postMessage(msg, '*');
@@ -241,6 +242,16 @@ export default {
       });
     }
 
+    const setRelease = () => {
+      // todo 发布
+      message.info('玩命开发中，敬请期待！');
+    }
+
+    const setPreview = () => {
+      // todo 发布
+      message.info('玩命开发中，敬请期待！');
+    }
+
 
     return {
       ...toRefs(editorState),
@@ -252,7 +263,9 @@ export default {
       deleteComponent,
       dragover_handler,
       drop_handler,
-      onDrag
+      onDrag,
+      setRelease,
+      setPreview,
     }
   },
   components: {
