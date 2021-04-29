@@ -1,4 +1,7 @@
 module.exports = {
+  devServer: {
+    disableHostCheck: true,
+  },
   configureWebpack: config => {
     config.optimization = {
       splitChunks: {
